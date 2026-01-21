@@ -1,0 +1,175 @@
+---
+title: Getting Started with Mekari
+description: Set up your Mekari account and create your first documentation space in minutes.
+---
+
+## Prerequisites
+
+Before you begin, ensure you have:
+
+- A valid email address for account creation
+- Team member emails ready for invitations
+- Basic knowledge of Markdown for content creation
+
+<Callout kind="info">
+
+Mekari requires a modern browser like Chrome, Firefox, or Safari. Disable ad blockers to avoid interface issues.
+
+</Callout>
+
+## Create Your Mekari Account
+
+Follow these steps to sign up and access your dashboard.
+
+<Steps>
+  <Step title="Visit the Dashboard" icon="monitor">
+    Navigate to `https://dashboard.example.com` and click **Sign Up**.
+
+    Select your role: Admin or Member.
+  </Step>
+  <Step title="Enter Details" icon="user">
+    Provide your email, full name, and company name.
+
+    Verify your email via the confirmation link sent to your inbox.
+  </Step>
+  <Step title="Set Password" icon="lock">
+    Create a strong password meeting these requirements:
+    - At least 12 characters
+    - Includes uppercase, lowercase, numbers, and symbols
+  </Step>
+</Steps>
+
+## Invite Team Members
+
+Collaborate by adding your team right away.
+
+<Steps>
+  <Step title="Access Team Settings" icon="users">
+    From the dashboard, click **Team** in the sidebar.
+  </Step>
+  <Step title="Send Invites" icon="mail">
+    Enter email addresses and select roles (Admin, Editor, Viewer).
+
+    Click **Send Invitations**.
+  </Step>
+  <Step title="Manage Permissions" icon="shield">
+    Review pending invites and set workspace access levels.
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+
+Invites expire after 7 days. Resend if needed.
+
+</Callout>
+
+## Build Your First Documentation Space
+
+Create and populate your initial doc space.
+
+<Steps>
+  <Step title="Create Space" icon="book-open">
+    Click **New Space** and name it `Project Docs`.
+  </Step>
+  <Step title="Add Pages" icon="plus">
+    Create pages like `Introduction.mdx` and `API Reference.mdx`.
+  </Step>
+  <Step title="Add Content" icon="edit-3">
+    Use the editor to write in Markdown or MDX.
+
+    Here's a basic example:
+
+    <CodeGroup tabs="Markdown,MDX">
+    ````markdown
+# Welcome
+
+This is your first doc page.
+    ````
+
+    ````mdx
+## Overview
+
+Welcome to your Mekari space.
+
+<Callout kind="success">Content added successfully!</Callout>
+    ````
+    </CodeGroup>
+  </Step>
+</Steps>
+
+## Basic Interface Tour
+
+Explore key areas using these platform views.
+
+<Tabs>
+  <Tab title="Dashboard" icon="home">
+    View spaces, recent activity, and analytics.
+
+    Key sections:
+    - **Spaces List**: Your doc collections
+    - **Activity Feed**: Changes and updates
+    - **Search Bar**: Find content quickly
+  </Tab>
+  <Tab title="Editor" icon="edit">
+    Compose docs with live preview.
+
+    Features:
+    - Syntax highlighting
+    - Component palette
+    - Version history
+  </Tab>
+  <Tab title="Settings" icon="settings">
+    Configure integrations and permissions.
+
+    Enable API access with `YOUR_API_KEY`.
+  </Tab>
+</Tabs>
+
+## Integrate with API
+
+Connect Mekari to your apps using the API.
+
+<Request tabs="cURL,JavaScript" show-lines="true">
+````curl
+curl -X POST https://api.example.com/v1/spaces \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"name": "New Space", "description": "Automated space"}'
+````
+
+````javascript
+const response = await fetch('https://api.example.com/v1/spaces', {
+  method: 'POST',
+  headers: {
+    'Authorization': 'Bearer YOUR_API_KEY',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    name: 'New Space',
+    description: 'Automated space'
+  })
+});
+````
+</Request>
+
+## Next Steps
+
+Dive deeper into Mekari features.
+
+<Columns cols={3}>
+  <Card title="Authentication" icon="lock" href="/authentication">
+    Secure your API and user access.
+  </Card>
+  <Card title="Configuration" icon="settings" href="/configuration">
+    Customize spaces and integrations.
+  </Card>
+  <Card title="Changelog" icon="git-branch" href="/changelog">
+    Stay updated with latest releases.
+  </Card>
+</Columns>
+
+<Callout kind="success">
+
+Congratulations! You've set up Mekari. Explore your new doc space and invite your team to collaborate.
+
+</Callout>

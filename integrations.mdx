@@ -1,0 +1,151 @@
+---
+title: Integrations and Extensions
+description: Connect Mekari with your favorite tools to streamline your documentation workflow.
+---
+
+## Overview
+
+Connect Mekari to your existing tools to automate workflows, sync data, and embed content seamlessly. You can integrate with third-party apps, set up webhooks for real-time updates, embed external resources, or build custom solutions using the API. These integrations help you centralize your documentation without switching contexts.
+
+<Callout kind="tip">
+  Start with pre-built third-party connections for quick setup, then explore webhooks and API for advanced automation.
+</Callout>
+
+## Third-Party App Connections
+
+Mekari supports direct integrations with popular tools. Use these to sync documents, receive notifications, or automate publishing.
+
+<Columns cols={3}>
+  <Card title="Slack" icon="message-circle" href="https://slack.com/apps" target="_blank">
+    Send documentation updates and alerts directly to your Slack channels.
+  </Card>
+  <Card title="GitHub" icon="github" href="https://github.com/apps" target="_blank">
+    Sync repos with your Mekari space for living documentation.
+  </Card>
+  <Card title="Google Workspace" icon="file-text" href="https://workspace.google.com/marketplace" target="_blank">
+    Import and embed Google Docs and Sheets effortlessly.
+  </Card>
+</Columns>
+
+To connect an app, navigate to your Mekari dashboard settings, select `Integrations`, and authorize the app. Grant only necessary permissions.
+
+## Webhook Setup for Automation
+
+Webhooks enable real-time events from Mekari, such as document updates or new pages. Receive payloads at your endpoint to trigger actions.
+
+<Steps>
+  <Step title="Create Webhook" icon="plus">
+    In Mekari dashboard, go to `Settings > Webhooks > New Webhook`. Enter your endpoint URL, like `https://your-webhook-url.com/mekari`.
+  </Step>
+  <Step title="Select Events" icon="zap">
+    Choose events: `page.created`, `page.updated`, `space.exported`.
+  </Step>
+  <Step title="Verify and Test" icon="check-circle">
+    Mekari sends a test payload. Respond with HTTP 200 to confirm.
+  </Step>
+</Steps>
+
+Here is an example payload for a `page.updated` event:
+
+<CodeGroup tabs="JSON">
+  ```json
+  {
+    "event": "page.updated",
+    "spaceId": "spc_abc123",
+    "pageId": "pg_xyz789",
+    "timestamp": 1699123456,
+    "userId": "usr_def456"
+  }
+  ```
+</CodeGroup>
+
+<Callout kind="alert">
+  Secure your webhook endpoint with HMAC signatures using `YOUR_WEBHOOK_SECRET`.
+</Callout>
+
+## Embedding External Content
+
+Embed live content from other services to enrich your Mekari pages.
+
+<Tabs>
+  <Tab title="YouTube Video" icon="video">
+    Use the embed code:
+    
+````html
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+````
+  </Tab>
+  <Tab title="Google Form" icon="file">
+    Paste the iframe src directly:
+    
+````html
+<iframe src="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?embedded=true" width="640" height="800" frameborder="0">Loading…</iframe>
+````
+  </Tab>
+  <Tab title="Figma" icon="square">
+    Copy the embed URL from Figma:
+    
+````html
+<iframe style="border: none; border-radius: 6px;" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/file/YOUR_FILE_ID/YOUR_FILE_NAME" width="240" height="240"></iframe>
+````
+  </Tab>
+</Tabs>
+
+## API Access for Custom Integrations
+
+Build tailored integrations using Mekari's REST API at `https://api.example.com/v1`.
+
+<Request tabs="cURL,JavaScript" show-lines="true">
+  ```bash
+  curl -X POST https://api.example.com/v1/pages \
+    -H "Authorization: Bearer YOUR_API_KEY" \
+    -H "Content-Type: application/json" \
+    -d '{
+      "title": "New Page",
+      "content": "Hello from API!"
+    }'
+  ```
+  ````javascript
+  const response = await fetch('https://api.example.com/v1/pages', {
+    method: 'POST',
+    headers: {
+      'Authorization': 'Bearer YOUR_API_KEY',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      title: 'New Page',
+      content: 'Hello from API!'
+    })
+  });
+  ````
+</Request>
+
+<Response tabs="201,401">
+  ```json
+  {
+    "id": "pg_abc123",
+    "title": "New Page",
+    "spaceId": "spc_xyz789",
+    "createdAt": 1699123456
+  }
+  ```
+
+  ```json
+  {
+    "error": "Unauthorized",
+    "message": "Invalid API key"
+  }
+  ```
+</Response>
+
+<ParamField path="title" param-type="string" required="true">
+  Page title, max 255 characters.
+</ParamField>
+
+<ParamField header="Authorization" param-type="string" required="true">
+  Bearer token: `Bearer YOUR_API_KEY`.
+</ParamField>
+
+## Next Steps
+
+Explore the [API Reference](/api) for full endpoints. Test integrations in a sandbox space first to avoid disrupting production workflows.

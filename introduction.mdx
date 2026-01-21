@@ -1,0 +1,108 @@
+---
+title: Introduction to Mekari
+description: Discover Mekari, the ultimate documentation platform for organizing and managing your project docs efficiently.
+---
+
+## What is Mekari?
+
+Mekari is a powerful documentation platform that helps you organize, manage, and share project documentation with your team. You create structured knowledge bases, collaborate in real-time, and deliver searchable, version-controlled docs to users. Whether you build software, manage projects, or run internal wikis, Mekari streamlines your workflow.
+
+<Callout kind="info">
+  Mekari integrates seamlessly with your existing tools like GitHub, Slack, and Jira for automated updates and notifications.
+</Callout>
+
+## Key Benefits for Teams
+
+Mekari empowers teams with centralized, accessible documentation. You reduce onboarding time, minimize knowledge silos, and ensure everyone stays aligned.
+
+<Columns cols={3}>
+  <Card title="Centralized Hub" icon="database" href="/docs/organization">
+    Store all your docs in one place. Search across projects with advanced filters and tags.
+  </Card>
+  <Card title="Real-Time Collaboration" icon="users" href="/docs/collaboration">
+    Edit docs together like Google Docs. Track changes and assign reviewers effortlessly.
+  </Card>
+  <Card title="Version Control" icon="git-branch" href="/docs/versioning">
+    Maintain history with Git-like versioning. Roll back changes and compare versions.
+  </Card>
+</Columns>
+
+## Quick Navigation Guide
+
+Get up and running quickly with these essential steps. You access core features from the dashboard.
+
+<Steps>
+  <Step title="Access Dashboard" icon="layout-dashboard">
+    Log in at `https://dashboard.mekari.com`. Review recent docs and activity feeds.
+  </Step>
+  <Step title="Create First Doc" icon="plus">
+    Click "New Document" and choose a template. Add markdown, images, or embeds.
+  </Step>
+  <Step title="Organize Content" icon="folder">
+    Use spaces and folders to group related docs. Set permissions for teams.
+  </Step>
+  <Step title="Publish & Share" icon="share-2">
+    Generate public links or embed in apps. Track views and engagement.
+  </Step>
+</Steps>
+
+## Integrate with Your API
+
+Connect Mekari to your services using our REST API. Start by authenticating.
+
+<CodeGroup tabs="JavaScript,cURL,Python">
+  ```javascript
+  const response = await fetch('https://api.example.com/v1/docs', {
+    headers: {
+      'Authorization': `Bearer ${YOUR_API_KEY}`,
+      'Content-Type': 'application/json'
+    }
+  });
+  const docs = await response.json();
+  console.log(docs);
+  ```
+  ```bash
+  curl -X GET https://api.example.com/v1/docs \
+    -H "Authorization: Bearer YOUR_API_KEY" \
+    -H "Content-Type: application/json"
+  ```
+  ```python
+  import requests
+  headers = {
+      'Authorization': 'Bearer YOUR_API_KEY',
+      'Content-Type': 'application/json'
+  }
+  response = requests.get('https://api.example.com/v1/docs', headers=headers)
+  docs = response.json()
+  print(docs)
+  ```
+</CodeGroup>
+
+<Tabs>
+  <Tab title="Teams" icon="users">
+    Assign roles like Editor or Viewer. Use `@mentions` for notifications.
+  </Tab>
+  <Tab title="Search" icon="search">
+    Full-text search with syntax highlighting. Filter by tags or dates.
+  </Tab>
+</Tabs>
+
+## Getting Support Resources
+
+You find help through multiple channels.
+
+<ExpandableGroup>
+  <Expandable title="Documentation" default-open="true">
+    Explore full guides at `/quickstart` and `/authentication`.
+  </Expandable>
+  <Expandable title="Community Forum">
+    Join discussions on our forum. Ask questions and share tips.
+  </Expandable>
+  <Expandable title="Contact Support">
+    Email `support@mekari.com` or use the in-app chat for priority help.
+  </Expandable>
+</ExpandableGroup>
+
+<Callout kind="tip">
+  Ready to dive deeper? Check the [Quickstart](/quickstart) guide next.
+</Callout>

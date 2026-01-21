@@ -1,0 +1,104 @@
+---
+title: Changelog
+description: Track the latest updates and improvements to Mekari.
+---
+
+## Recent Releases
+
+Stay informed about new features, improvements, bug fixes, and breaking changes in Mekari. You receive notifications through your dashboard and email subscriptions.
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added real-time collaboration for shared documentation projects, allowing multiple users to edit simultaneously.
+- Introduced version history with diff views, so you can compare changes and restore previous versions easily.
+- Integrated webhook support for custom notifications on document updates.
+
+## Improvements
+
+- Enhanced search functionality with fuzzy matching and full-text indexing for faster results.
+- Optimized performance for large documentation spaces, reducing load times by up to 40%.
+
+</Update>
+
+<Update label="2024-09-20" description="v1.1.0" tags={["bugfix", "security"]}>
+
+## Bug Fixes
+
+- Fixed authentication token refresh issues that caused session expirations during long editing sessions.
+- Resolved export failures for documents with embedded images or complex formatting.
+- Patched potential XSS vulnerabilities in user-generated content rendering.
+
+## Security
+
+- Updated all dependencies to latest secure versions.
+- Added rate limiting to API endpoints to prevent abuse.
+
+</Update>
+
+<Update label="2024-08-10" description="v1.0.0" tags={["breaking", "feature"]}>
+
+## Breaking Changes
+
+- Removed legacy v0 API endpoints; migrate to v1 endpoints at `https://api.example.com/v1`.
+- Changed default permission model from public to private workspaces.
+
+## New Features
+
+- Core documentation editor with Markdown and rich text support.
+- User management and role-based access control.
+- Basic analytics dashboard for document views and edits.
+
+</Update>
+
+<Callout kind="info">
+Check your Mekari dashboard at `https://dashboard.example.com` for personalized release notes and migration guides.
+</Callout>
+
+## Upcoming Roadmap
+
+Discover what's coming next to Mekari. These features are in active development.
+
+<ExpandableGroup>
+  <Expandable title="Q4 2024: AI-Powered Features" default-open="true">
+    - AI-assisted content generation and summarization.
+    - Automated tagging and categorization using machine learning.
+    - Integration with popular CMS platforms like WordPress.
+  </Expandable>
+  <Expandable title="Q1 2025: Enterprise Enhancements">
+    - Advanced SSO with SAML and OAuth providers.
+    - Compliance features for GDPR and SOC 2.
+    - Custom branding and white-label options.
+  </Expandable>
+</ExpandableGroup>
+
+## Quick Links
+
+<Columns cols={3}>
+  <Card title="GitHub Releases" icon="github" href="https://github.com/mekari/docs/releases" target="_blank">
+    View full release notes and download assets.
+  </Card>
+  <Card title="Migration Guide" icon="book-open" href="/migration">
+    Step-by-step instructions for upgrading.
+  </Card>
+  <Card title="Report Issues" icon="bug" href="https://github.com/mekari/docs/issues" target="_blank">
+    Help us improve by submitting feedback.
+  </Card>
+</Columns>
+
+## Stay Updated
+
+Follow these steps to ensure you never miss an update.
+
+<Steps>
+  <Step title="Enable Notifications" icon="bell">
+    Go to your account settings and toggle email notifications for releases.
+  </Step>
+  <Step title="Subscribe to RSS" icon="rss">
+    Add `https://mekari.com/rss/changelog.xml` to your feed reader.
+  </Step>
+  <Step title="Join Community" icon="users">
+    Participate in our Discord or forum for early access previews.
+  </Step>
+</Steps>
